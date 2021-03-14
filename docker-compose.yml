@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  jenkins:
+    image: jenkins-ci
+    privileged: true
+    user: jenkins
+    ports:
+      - 8080:8080
+      - 50000:50000
+    container_name: jenkins
+    volumes:
+      - ./jenkins-data:/var/jenkins_home
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+      restart_policy:
+        condition: on-failure
