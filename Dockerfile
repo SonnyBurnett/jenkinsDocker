@@ -10,6 +10,8 @@ ENV M2_HOME /opt/maven
 RUN echo "export M2_HOME=/opt/maven" >> /etc/bashrc 
 RUN apt-get -y install git
 
+RUN mkdir -p /var/deploy_data
+
 # drop back to the regular jenkins user - good practice
 USER jenkins
 LABEL name="CI Jenkins container"

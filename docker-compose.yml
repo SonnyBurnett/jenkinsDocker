@@ -10,6 +10,7 @@ services:
     container_name: jenkins
     volumes:
       - ./jenkins-data:/var/jenkins_home
+      - /Users/tacobakker/pipeline/tomcat/tomcatdata:/var/deploy_data
     deploy:
       replicas: 1
       update_config:
